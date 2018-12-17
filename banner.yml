@@ -20,11 +20,11 @@
 
   - name: remove the motd banner
     ios_banner:
-      banner: motd
+      banner: login
       state: absent
        
   - name: Configure banner from file
     ios_banner:
-      banner:  motd
+      banner:  login
       text: "{{ lookup('file', './banner.txt') }}"
       state: present
