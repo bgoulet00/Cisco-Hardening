@@ -1,3 +1,4 @@
+---
 - name: update Cisco login banner
   hosts: all
   connection: local
