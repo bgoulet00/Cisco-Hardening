@@ -1,0 +1,15 @@
+W A R N I N G
+
+This system is provided only for authorized use and is
+actively monitored. All attempts to access this system are
+logged to ensure their use is authorized for management of
+the system, to facilitate protection against unauthorized
+access, and to verify security procedures, survivability and
+operational security. Misuse of and all unauthorized attempts
+to access this system may be subject to civil and/or criminal
+action.
+
+All information contained on or sent within this system is
+considered to be proprietary property of the system owner.
+There is no individual expectation of privacy. By continuing
+the logon process you consent to monitoring for this purpose.
