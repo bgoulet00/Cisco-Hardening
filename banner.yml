@@ -19,5 +19,5 @@
 - name: Configure banner from file
   ios_banner:
     banner:  motd
-    text: "{{ lookup('file', './config_partial/raw_banner.cfg') }}"
+    text: "{{ lookup('file', './raw_banner.txt') }}"
     state: present
