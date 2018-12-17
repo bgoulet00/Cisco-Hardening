@@ -1,5 +1,11 @@
 - name: update Cisco login banner
   hosts: all
+  connection: local
+  
+  vars:
+    ciscoios: 'cisco_ios'
+    ciscoiosssh: 'cisco_ios_ssh'
+    
   tasks:
   
   - name: configure the login banner
