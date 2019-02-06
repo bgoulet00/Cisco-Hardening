@@ -24,7 +24,7 @@
         - no service udp-small-servers
         - no service tcp-small-servers
         # - no boot network
-        # - no service config
+        - no service config
         # - no service pad
         # - no ip rcmd rcp-enable
         # - no ip rcmd rsh-enable
