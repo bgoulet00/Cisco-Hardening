@@ -1,0 +1,16 @@
+---
+- name: name of the play
+  hosts: all
+  connection: local
+    
+  tasks: 
+
+  - name: set secret password
+    ios_config:
+      lines: enable secret 5 $1$lyq2$DLhnBnmb103ohI/pqIHS20
+      state: absent
+       
+  - name: remove week password
+    ios_command:
+      commands:  no enable password
+   
