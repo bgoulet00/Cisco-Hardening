@@ -6,7 +6,7 @@
   tasks:
   
 
-  - name: configure services
+  - name: enable services
     ios_config:
       lines:
         - service password-encryption
@@ -15,18 +15,22 @@
         - service timestamps debug datetime msec
         - service timestamps log datetime msec
         - service linenumber
-        - no service pad
-        - no service finger
-        - no service udp-small-servers
-        - no service tcp-small-servers
-        - no boot network
-        - no service config
-        - no service pad
-        - no ip rcmd rcp-enable
-        - no ip rcmd rsh-enable
-        - no ip http server
-        - no ip http secure-server
        
+  # - name: disable services
+    # ios_config:
+      # lines:
+        # - no service pad
+        # - no service finger
+        # - no service udp-small-servers
+        # - no service tcp-small-servers
+        # - no boot network
+        # - no service config
+        # - no service pad
+        # - no ip rcmd rcp-enable
+        # - no ip rcmd rsh-enable
+        # - no ip http server
+        # - no ip http secure-server
+        
   # - name: Configure Time
     # ios_config:
         # lines:
