@@ -6,18 +6,18 @@
   tasks: 
 
       
-  # - name: configure logging host 1
-    # ios_logging:
-      # dest: host
-      # name: 10.224.114.71
-      # state: present
+  - name: configure logging host 1
+    ios_logging:
+      dest: host
+      name: 10.224.114.71
+      state: present
        
   - name: configure logging parameters
     ios_logging:
       aggregate:
-        - { dest: on}
-        - { dest: host, name: 10.224.114.71, level: informational}
-        - { dest: host, name: 10.224.115.31, level: informational}
+        - { dest: on }
+        - { dest: host, name: 10.224.114.71, level: informational }
+        - { dest: host, name: 10.224.115.31, level: informational }
         - { dest: console, level: informational }
         - { dest: monitor, level: informational }
         - { dest: burrered, level: informational, size: 64000 }
