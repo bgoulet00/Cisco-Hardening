@@ -22,8 +22,8 @@
         - no service pad
         - no service finger
         - no service udp-small-servers
-        - no service tcp-small-servers
-        - no boot network
+        # - no service tcp-small-servers
+        # - no boot network
         # - no service config
         # - no service pad
         # - no ip rcmd rcp-enable
