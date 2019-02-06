@@ -5,22 +5,42 @@
     
   tasks: 
 
+  - name: ensure logging is on
+    ios_logging:
+      dest: on
+      state: present
       
   - name: configure logging host 1
     ios_logging:
       dest: host
       name: 10.224.114.71
+      level: informational
       state: present
-       
-  - name: configure logging parameters
+      
+  - name: configure logging host 2
     ios_logging:
-      aggregate:
-        - { dest: on }
-        - { dest: host, name: 10.224.114.71, level: informational }
-        - { dest: host, name: 10.224.115.31, level: informational }
-        - { dest: console, level: informational }
-        - { dest: monitor, level: informational }
-        - { dest: burrered, level: informational, size: 64000 }
+      dest: host
+      name: 10.224.115.31
+      level: informational
+      state: present
+ 
+  - name: configure console logging
+    ios_logging:
+      dest: console
+      level: informational
+      state: present
+      
+  - name: configure vty line logging
+    ios_logging:
+      dest: monitor
+      level: informational
+      state: present
+      
+  - name: configure buffered logging
+    ios_logging:
+      dest: buffered
+      level: informational
+      size: 64000
       state: present
       
   - name: save config
