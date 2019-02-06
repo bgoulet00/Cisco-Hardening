@@ -1,10 +1,14 @@
 ---
-- name: set enable password
+- name: set passwords
   hosts: all
   connection: local
     
   tasks: 
 
+  - name: set admin password
+    ios_config:
+      lines: username admin privilege 15 secret 5 $1$ZH61$nC1YCR4ot59w75Y3YLmwf0
+      
   - name: set secret password
     ios_config:
       lines: enable secret 5 $1$lyq2$DLhnBnmb103ohI/pqIHS20
