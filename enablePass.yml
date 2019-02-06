@@ -10,10 +10,10 @@
       lines: enable secret 5 $1$lyq2$DLhnBnmb103ohI/pqIHS20
        
   - name: remove week password
-    ios_command:
-      commands:  'no enable password'
+    ios_config:
+      lines: no enable password
       
   - name: save config
-    ios_command:
-      commands:  'write mem'
+    ios_config:
+      save_when: always
    
