@@ -10,7 +10,7 @@
     ios_config:
       lines:
         - service password-encryption
-        # - service tcp-keepalives-in
+        - service tcp-keepalives-in
         # - service tcp-keepalives-out
         # - service timestamps debug datetime msec
         # - service timestamps log datetime msec
