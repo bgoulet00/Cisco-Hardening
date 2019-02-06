@@ -1,5 +1,5 @@
 ---
-- name: name of the play
+- name: set enable password
   hosts: all
   connection: local
     
@@ -11,5 +11,9 @@
        
   - name: remove week password
     ios_command:
-      commands:  no enable password
+      commands:  'no enable password'
+      
+  - name: save config
+    ios_command:
+      commands:  'write mem'
    
