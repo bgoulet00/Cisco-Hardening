@@ -42,8 +42,7 @@
         - clock timezone UTC 0 0
         - no clock summer-time 
     register: output
-    debug: msg="{{ output.stdout }}"
-    debug: msg="{{ output.stderr }}"
+
       
   # - name: Configure IP settings
     # ios_config:
@@ -94,3 +93,6 @@
     # parents: 
       # - line vty 0 4
       # - line vty 5 15
+      
+  - debug: msg="{{ output.stdout }}"
+  - debug: msg="{{ output.stderr }}"
