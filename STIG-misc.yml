@@ -5,17 +5,38 @@
     
   tasks:
   
+# SERVICES
 
-  # - name: enable services
-    # ios_config:
-      # lines:
-        # - service password-encryption
-        # - service tcp-keepalives-in
-        # - service tcp-keepalives-out
-        # - service timestamps debug datetime msec
-        # - service timestamps log datetime msec
-        # - service linenumber
-       
+  - name: password-encryption
+    ios_config:
+      lines: service password-encryption
+    ignore_errors: yes
+
+  - name: tcp-keepalives-in
+    ios_config:
+      lines: service tcp-keepalives-in
+    ignore_errors: yes
+    
+  - name: tcp-keepalives-out
+    ios_config:
+      lines: service tcp-keepalives-out
+    ignore_errors: yes
+    
+  - name: timestamps debug
+    ios_config:
+      lines: service timestamps debug datetime msec
+    ignore_errors: yes
+    
+  - name: timestamps log
+    ios_config:
+      lines: service timestamps log datetime msec
+    ignore_errors: yes
+    
+  - name: service linenumber
+    ios_config:
+      lines: service linenumber
+    ignore_errors: yes
+    
   # - name: disable services
     # ios_config:
       # lines:
@@ -30,18 +51,17 @@
         # - no ip http server
         # - no ip http secure-server
         
-  - name: Configure Time
-    ios_config:
-        lines:
-        - clock timezone utc 0 0
-        - ntp update-calendar
+  # - name: Configure Time
+    # ios_config:
+        # lines:
+        # - clock timezone utc 0 0
+        # - ntp update-calendar
         # - ntp server 10.224.1.16 prefer
         # - ntp server 10.224.1.17
         # - ntp server 10.224.225.5
         # - ntp server 10.224.225.6
         # - clock timezone UTC 0 0
         # - no clock summer-time 
-    register: output
 
       
   # - name: Configure IP settings
@@ -94,5 +114,3 @@
       # - line vty 0 4
       # - line vty 5 15
       
-  # - debug: msg="{{ output.stdout }}"
-  # - debug: msg="{{ output.stderr }}"
