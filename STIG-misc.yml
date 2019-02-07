@@ -7,50 +7,85 @@
   
 # SERVICES
 
-  - name: password-encryption
+  # - name: password-encryption
+    # ios_config:
+      # lines: service password-encryption
+    # ignore_errors: yes
+
+  # - name: tcp-keepalives-in
+    # ios_config:
+      # lines: service tcp-keepalives-in
+    # ignore_errors: yes
+    
+  # - name: tcp-keepalives-out
+    # ios_config:
+      # lines: service tcp-keepalives-out
+    # ignore_errors: yes
+    
+  # - name: timestamps debug
+    # ios_config:
+      # lines: service timestamps debug datetime msec
+    # ignore_errors: yes
+    
+  # - name: timestamps log
+    # ios_config:
+      # lines: service timestamps log datetime msec
+    # ignore_errors: yes
+    
+  # - name: service linenumber
+    # ios_config:
+      # lines: service linenumber
+    # ignore_errors: yes
+    
+  - name: network boot
     ios_config:
-      lines: service password-encryption
+      lines: no boot network
+        
+  - name: pad
+    ios_config:
+      lines: no service pad
+    ignore_errors: yes
+    
+   - name: finger
+    ios_config:
+      lines: no service finger
     ignore_errors: yes
 
-  - name: tcp-keepalives-in
+  - name: udp servers
     ios_config:
-      lines: service tcp-keepalives-in
+      lines: no service udp-small-servers
     ignore_errors: yes
-    
-  - name: tcp-keepalives-out
+
+  - name: tcp servers
     ios_config:
-      lines: service tcp-keepalives-out
+      lines: no service tcp-small-servers
     ignore_errors: yes
-    
-  - name: timestamps debug
+
+  - name: service config
     ios_config:
-      lines: service timestamps debug datetime msec
+      lines: no service config
     ignore_errors: yes
-    
-  - name: timestamps log
+
+  - name: rcp
     ios_config:
-      lines: service timestamps log datetime msec
+      lines: no ip rcmd rcp-enable
     ignore_errors: yes
-    
-  - name: service linenumber
+
+  - name: rsh
     ios_config:
-      lines: service linenumber
+      lines: no ip rcmd rsh-enable
     ignore_errors: yes
-    
-  # - name: disable services
-    # ios_config:
-      # lines:
-        # - no service pad
-        # - no service finger
-        # - no service udp-small-servers
-        # - no service tcp-small-servers
-        # - no service config
-        # - no service pad
-        # - no ip rcmd rcp-enable
-        # - no ip rcmd rsh-enable
-        # - no ip http server
-        # - no ip http secure-server
-        
+
+  - name: http
+    ios_config:
+      lines: no ip http server
+    ignore_errors: yes
+
+   - name: https
+    ios_config:
+      lines: no ip http secure-server
+    ignore_errors: yes
+      
   # - name: Configure Time
     # ios_config:
         # lines:
