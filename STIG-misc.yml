@@ -244,19 +244,27 @@
   - name: VTY timeout
     ios_config:
         lines: exec-timeout 10 0
-        parents: 
-          - line vty 0 4
-          - line vty 5 15
+        parents: line vty 0 4
     ignore_errors: yes     
 
   - name: VTY logging
     ios_config:
         lines: logging synchronous
-        parents: 
-          - line vty 0 4
-          - line vty 5 15
+        parents: line vty 0 4
     ignore_errors: yes
 
+  - name: VTY timeout
+    ios_config:
+        lines: exec-timeout 10 0
+        parents: line vty 5 15
+    ignore_errors: yes     
+
+  - name: VTY logging
+    ios_config:
+        lines: logging synchronous
+        parents: line vty 5 15
+    ignore_errors: yes
+    
 ##### SAVE CONFIG #####
 
   - name: save config
