@@ -41,6 +41,9 @@
         - ntp server 10.224.225.6
         - clock timezone UTC 0 0
         - no clock summer-time 
+    register: output
+    debug: msg="{{ output.stdout }}"
+    debug: msg="{{ output.stderr }}"
       
   # - name: Configure IP settings
     # ios_config:
