@@ -178,41 +178,69 @@
 
 ##### SNMP #####
 
-  - name: SNMP shutdown
+  # - name: SNMP shutdown
+    # ios_config:
+        # lines: no snmp-server system-shutdown
+    # ignore_errors: yes
+    
+  # - name: SNMP community public
+    # ios_config:
+      # lines: no snmp-server community public RO
+    # ignore_errors: yes
+    
+  # - name: SNMP community private
+    # ios_config:
+      # lines: no snmp-server community private RW
+    # ignore_errors: yes
+
+##### CNS #####
+
+  - name: CNS publish
     ios_config:
-        lines: no snmp-server system-shutdown
+        lines: no diagnostic cns publish
     ignore_errors: yes
     
-  - name: SNMP community public
+  - name: CNS subscribe
     ios_config:
-      lines: no snmp-server community public RO
+        lines: no diagnostic cns subscribe
+    ignore_errors: yes
+
+##### VSTACK #####
+
+  - name: vstack
+    ios_config:
+        lines: no vstack config
     ignore_errors: yes
     
-  - name: SNMP community private
+  - name: vstack
     ios_config:
-      lines: no snmp-server community private RW
+        lines: no vstack
     ignore_errors: yes
     
-  # - name: CNS
-    # ios_config:
-        # lines:
-      #   - no diagnostic cns publish
-      #   - no diagnostic cns subscribe
-      
-  # - name: vstack
-    # ios_config:
-        # lines:
-      #   - no vstack config
-      #   - no vstack
-      
-  # - name: SSH
-    # ios_config:
-        # lines:
-      #   - ip ssh time-out 60
-      #   - ip ssh version 2
-      #   - ip ssh authentication-retries 3
-      #   - ip scp server enable
-      
+##### SSH #####
+
+  - name: SSH timeout
+    ios_config:
+        lines: ip ssh time-out 60
+    ignore_errors: yes
+    
+  - name: SSH version
+    ios_config:
+        lines: ip ssh version 2
+    ignore_errors: yes
+
+  - name: SSH auth retries
+    ios_config:
+        lines: ip ssh authentication-retries 3
+    ignore_errors: yes
+
+  - name: SCP server
+    ios_config:
+        lines: ip scp server enable
+    ignore_errors: yes
+
+##### VTY LINES #####
+
   # - name: VTY lines
     # ios_config:
         # lines:
