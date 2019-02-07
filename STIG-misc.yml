@@ -16,31 +16,31 @@
         # - service timestamps log datetime msec
         # - service linenumber
        
-  - name: disable services
-    ios_config:
-      lines:
-        - no service pad
-        - no service finger
-        - no service udp-small-servers
-        - no service tcp-small-servers
-        - no service config
-        - no service pad
-        - no ip rcmd rcp-enable
-        - no ip rcmd rsh-enable
-        - no ip http server
-        - no ip http secure-server
-        
-  # - name: Configure Time
+  # - name: disable services
     # ios_config:
-        # lines:
-      #   - clock timezone utc 0 0
-      #   - ntp update-calendar
-      #   - ntp server 10.224.1.16 prefer
-      #   - ntp server 10.224.1.17
-      #   - ntp server 10.224.225.5
-      #   - ntp server 10.224.225.6
-      #   - clock timezone UTC 0 0
-      #   - no clock summer-time 
+      # lines:
+        # - no service pad
+        # - no service finger
+        # - no service udp-small-servers
+        # - no service tcp-small-servers
+        # - no service config
+        # - no service pad
+        # - no ip rcmd rcp-enable
+        # - no ip rcmd rsh-enable
+        # - no ip http server
+        # - no ip http secure-server
+        
+  - name: Configure Time
+    ios_config:
+        lines:
+        - clock timezone utc 0 0
+        - ntp update-calendar
+        - ntp server 10.224.1.16 prefer
+        - ntp server 10.224.1.17
+        - ntp server 10.224.225.5
+        - ntp server 10.224.225.6
+        - clock timezone UTC 0 0
+        - no clock summer-time 
       
   # - name: Configure IP settings
     # ios_config:
