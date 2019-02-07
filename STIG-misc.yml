@@ -126,64 +126,73 @@
 
 ##### IP SETTINGS #####
 
-  - name: subnet zero
-    ios_config:
-        lines: ip subnet-zero
-    ignore_errors: yes      
-
-  - name: source-route
-    ios_config:
-      lines: no ip source-route
-    ignore_errors: yes
-
-  - name: gratuitous-arps
-    ios_config:
-      lines: no ip gratuitous-arps
-    ignore_errors: yes
-
-  - name: directed-broadcast
-    ios_config:
-      lines: no ip directed-broadcast
-    ignore_errors: yes
-
-  - name: domain-lookup
-    ios_config:
-      lines: no ip domain-lookup
-    ignore_errors: yes
-
-  - name: bootp
-    ios_config:
-      lines: no ip bootp server
-    ignore_errors: yes
-
-  - name: synwait-time
-    ios_config:
-      lines: ip tcp synwait-time 10
-    ignore_errors: yes
-
-  - name: tcp intercept connection
-    ios_config:
-      lines: ip tcp intercept connection-timeout 60
-    ignore_errors: yes
-
-  - name: tcp intercept watch
-    ios_config:
-      lines: ip tcp intercept watch-timeout 10
-    ignore_errors: yes
-
-  - name: authentication-retries
-    ios_config:
-      lines: ip ssh authentication-retries 2
-    ignore_errors: yes
-
-      
-  # - name: SNMP
+  # - name: subnet zero
     # ios_config:
-        # lines:
-      #   - no snmp-server system-shutdown
-      #   - no snmp-server community public RO
-      #   - no snmp-server community private RW
-      
+        # lines: ip subnet-zero
+    # ignore_errors: yes      
+
+  # - name: source-route
+    # ios_config:
+      # lines: no ip source-route
+    # ignore_errors: yes
+
+  # - name: gratuitous-arps
+    # ios_config:
+      # lines: no ip gratuitous-arps
+    # ignore_errors: yes
+
+  # - name: directed-broadcast
+    # ios_config:
+      # lines: no ip directed-broadcast
+    # ignore_errors: yes
+
+  # - name: domain-lookup
+    # ios_config:
+      # lines: no ip domain-lookup
+    # ignore_errors: yes
+
+  # - name: bootp
+    # ios_config:
+      # lines: no ip bootp server
+    # ignore_errors: yes
+
+  # - name: synwait-time
+    # ios_config:
+      # lines: ip tcp synwait-time 10
+    # ignore_errors: yes
+
+  # - name: tcp intercept connection
+    # ios_config:
+      # lines: ip tcp intercept connection-timeout 60
+    # ignore_errors: yes
+
+  # - name: tcp intercept watch
+    # ios_config:
+      # lines: ip tcp intercept watch-timeout 10
+    # ignore_errors: yes
+
+  # - name: authentication-retries
+    # ios_config:
+      # lines: ip ssh authentication-retries 2
+    # ignore_errors: yes
+
+##### SNMP #####
+
+  - name: SNMP shutdown
+    ios_config:
+        lines: no snmp-server system-shutdown
+    ignore_errors: yes
+    
+  - name: SNMP community public
+    ios_config:
+      lines: no snmp-server community public RO
+    ignore_errors: yes
+    
+  - name: SNMP community private
+    ios_config:
+      lines: no snmp-server community private RW
+    ignore_errors: yes
+    
   # - name: CNS
     # ios_config:
         # lines:
