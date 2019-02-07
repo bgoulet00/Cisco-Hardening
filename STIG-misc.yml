@@ -34,13 +34,13 @@
     ios_config:
         lines:
         - clock timezone utc 0 0
-        - ntp update-calendar
-        - ntp server 10.224.1.16 prefer
-        - ntp server 10.224.1.17
-        - ntp server 10.224.225.5
-        - ntp server 10.224.225.6
-        - clock timezone UTC 0 0
-        - no clock summer-time 
+        # - ntp update-calendar
+        # - ntp server 10.224.1.16 prefer
+        # - ntp server 10.224.1.17
+        # - ntp server 10.224.225.5
+        # - ntp server 10.224.225.6
+        # - clock timezone UTC 0 0
+        # - no clock summer-time 
     register: output
 
       
@@ -94,5 +94,5 @@
       # - line vty 0 4
       # - line vty 5 15
       
-  - debug: msg="{{ output.stdout }}"
-  - debug: msg="{{ output.stderr }}"
+  # - debug: msg="{{ output.stdout }}"
+  # - debug: msg="{{ output.stderr }}"
