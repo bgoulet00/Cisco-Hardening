@@ -234,10 +234,10 @@
         # lines: ip ssh authentication-retries 3
     # ignore_errors: yes
 
-  # - name: SCP server
-    # ios_config:
-        # lines: ip scp server enable
-    # ignore_errors: yes
+  - name: SCP server
+    ios_config:
+        lines: ip scp server enable
+    ignore_errors: yes
 
 ##### VTY LINES #####
 
