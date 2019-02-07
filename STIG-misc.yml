@@ -2,6 +2,12 @@
 - name: STIG BASELINE COMPLIANCE
   hosts: all
   connection: local
+
+  vars:
+    NTP1: '10.224.1.16'
+    NTP2: '10.224.1.17'
+    NTP3: '10.224.225.5'
+    NTP4: '10.224.225.6'
     
   tasks:
   
@@ -99,25 +105,25 @@
       # lines: ntp update-calendar
     # ignore_errors: yes
 
-  # - name: ntp server 1
-    # ios_config:
-      # lines: ntp server 10.224.1.16 prefer
-    # ignore_errors: yes
+  - name: ntp server 1
+    ios_config:
+      lines: ntp server {{ NTP1 }} prefer
+    ignore_errors: yes
 
-  # - name: ntp server 2
-    # ios_config:
-      # lines: ntp server 10.224.1.17
-    # ignore_errors: yes
+  - name: ntp server 2
+    ios_config:
+      lines: ntp server {{ NTP2 }}
+    ignore_errors: yes
 
-  # - name: ntp server 3
-    # ios_config:
-      # lines: ntp server 10.224.225.5
-    # ignore_errors: yes
+  - name: ntp server 3
+    ios_config:
+      lines: ntp server {{ NTP3 }}
+    ignore_errors: yes
 
-  # - name: ntp server 4
-    # ios_config:
-      # lines: ntp server 10.224.225.6
-    # ignore_errors: yes
+  - name: ntp server 4
+    ios_config:
+      lines: ntp server {{ NTP4 }}
+    ignore_errors: yes
 
   # - name: daylight savings
     # ios_config:
@@ -241,29 +247,41 @@
 
 ##### VTY LINES #####
 
-  - name: VTY timeout
-    ios_config:
-        lines: exec-timeout 10 0
-        parents: line vty 0 4
-    ignore_errors: yes     
+  # - name: VTY timeout
+    # ios_config:
+        # lines: exec-timeout 10 0
+        # parents: line vty 0 4
+    # ignore_errors: yes     
 
-  - name: VTY logging
-    ios_config:
-        lines: logging synchronous
-        parents: line vty 0 4
-    ignore_errors: yes
+  # - name: VTY logging
+    # ios_config:
+        # lines: logging synchronous
+        # parents: line vty 0 4
+    # ignore_errors: yes
 
-  - name: VTY timeout
-    ios_config:
-        lines: exec-timeout 10 0
-        parents: line vty 5 15
-    ignore_errors: yes     
+  # - name: VTY transport
+    # ios_config:
+        # lines: transport input ssh
+        # parents: line vty 0 4
+    # ignore_errors: yes
+    
+  # - name: VTY timeout
+    # ios_config:
+        # lines: exec-timeout 10 0
+        # parents: line vty 5 15
+    # ignore_errors: yes     
 
-  - name: VTY logging
-    ios_config:
-        lines: logging synchronous
-        parents: line vty 5 15
-    ignore_errors: yes
+  # - name: VTY logging
+    # ios_config:
+        # lines: logging synchronous
+        # parents: line vty 5 15
+    # ignore_errors: yes
+ 
+   # - name: VTY transport
+    # ios_config:
+        # lines: transport input ssh
+        # parents: line vty 5 15
+    # ignore_errors: yes
     
 ##### SAVE CONFIG #####
 
