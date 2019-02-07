@@ -37,69 +37,94 @@
       # lines: service linenumber
     # ignore_errors: yes
     
-  - name: network boot
-    ios_config:
-      lines: no boot network
-    ignore_errors: yes
-        
-  - name: pad
-    ios_config:
-      lines: no service pad
-    ignore_errors: yes
-    
-  - name: finger
-    ios_config:
-      lines: no service finger
-    ignore_errors: yes
-
-  - name: udp servers
-    ios_config:
-      lines: no service udp-small-servers
-    ignore_errors: yes
-
-  - name: tcp servers
-    ios_config:
-      lines: no service tcp-small-servers
-    ignore_errors: yes
-
-  - name: service config
-    ios_config:
-      lines: no service config
-    ignore_errors: yes
-
-  - name: rcp
-    ios_config:
-      lines: no ip rcmd rcp-enable
-    ignore_errors: yes
-
-  - name: rsh
-    ios_config:
-      lines: no ip rcmd rsh-enable
-    ignore_errors: yes
-
-  - name: http
-    ios_config:
-      lines: no ip http server
-    ignore_errors: yes
-
-  - name: https
-    ios_config:
-      lines: no ip http secure-server
-    ignore_errors: yes
-      
-  # - name: Configure Time
+  # - name: network boot
     # ios_config:
-        # lines:
-        # - clock timezone utc 0 0
-        # - ntp update-calendar
-        # - ntp server 10.224.1.16 prefer
-        # - ntp server 10.224.1.17
-        # - ntp server 10.224.225.5
-        # - ntp server 10.224.225.6
-        # - clock timezone UTC 0 0
-        # - no clock summer-time 
+      # lines: no boot network
+    # ignore_errors: yes
+        
+  # - name: pad
+    # ios_config:
+      # lines: no service pad
+    # ignore_errors: yes
+    
+  # - name: finger
+    # ios_config:
+      # lines: no service finger
+    # ignore_errors: yes
 
+  # - name: udp servers
+    # ios_config:
+      # lines: no service udp-small-servers
+    # ignore_errors: yes
+
+  # - name: tcp servers
+    # ios_config:
+      # lines: no service tcp-small-servers
+    # ignore_errors: yes
+
+  # - name: service config
+    # ios_config:
+      # lines: no service config
+    # ignore_errors: yes
+
+  # - name: rcp
+    # ios_config:
+      # lines: no ip rcmd rcp-enable
+    # ignore_errors: yes
+
+  # - name: rsh
+    # ios_config:
+      # lines: no ip rcmd rsh-enable
+    # ignore_errors: yes
+
+  # - name: http
+    # ios_config:
+      # lines: no ip http server
+    # ignore_errors: yes
+
+  # - name: https
+    # ios_config:
+      # lines: no ip http secure-server
+    # ignore_errors: yes
       
+##### SYSTEM TIME #####
+
+  - name: UTC timezone
+    ios_config: 
+        lines: clock timezone utc 0 0 
+    ignore_errors: yes
+
+  - name: update-calendar
+    ios_config:
+      lines: ntp update-calendar
+    ignore_errors: yes
+
+  - name: ntp server 1
+    ios_config:
+      lines: ntp server 10.224.1.16 prefer
+    ignore_errors: yes
+
+  - name: ntp server 2
+    ios_config:
+      lines: ntp server 10.224.1.17
+    ignore_errors: yes
+
+  - name: ntp server 3
+    ios_config:
+      lines: ntp server 10.224.225.5
+    ignore_errors: yes
+
+  - name: ntp server 4
+    ios_config:
+      lines: ntp server 10.224.225.6
+    ignore_errors: yes
+
+  - name: daylight savings
+    ios_config:
+      lines: no clock summer-time
+    ignore_errors: yes
+
+     
   # - name: Configure IP settings
     # ios_config:
         # lines:
