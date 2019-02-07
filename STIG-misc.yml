@@ -195,58 +195,71 @@
 
 ##### CNS #####
 
-  - name: CNS publish
-    ios_config:
-        lines: no diagnostic cns publish
-    ignore_errors: yes
+  # - name: CNS publish
+    # ios_config:
+        # lines: no diagnostic cns publish
+    # ignore_errors: yes
     
-  - name: CNS subscribe
-    ios_config:
-        lines: no diagnostic cns subscribe
-    ignore_errors: yes
+  # - name: CNS subscribe
+    # ios_config:
+        # lines: no diagnostic cns subscribe
+    # ignore_errors: yes
 
-##### VSTACK #####
+#### VSTACK #####
 
-  - name: vstack
-    ios_config:
-        lines: no vstack config
-    ignore_errors: yes
+  # - name: vstack
+    # ios_config:
+        # lines: no vstack config
+    # ignore_errors: yes
     
-  - name: vstack
-    ios_config:
-        lines: no vstack
-    ignore_errors: yes
+  # - name: vstack
+    # ios_config:
+        # lines: no vstack
+    # ignore_errors: yes
     
-##### SSH #####
+#### SSH #####
 
-  - name: SSH timeout
-    ios_config:
-        lines: ip ssh time-out 60
-    ignore_errors: yes
+  # - name: SSH timeout
+    # ios_config:
+        # lines: ip ssh time-out 60
+    # ignore_errors: yes
     
-  - name: SSH version
-    ios_config:
-        lines: ip ssh version 2
-    ignore_errors: yes
+  # - name: SSH version
+    # ios_config:
+        # lines: ip ssh version 2
+    # ignore_errors: yes
 
-  - name: SSH auth retries
-    ios_config:
-        lines: ip ssh authentication-retries 3
-    ignore_errors: yes
+  # - name: SSH auth retries
+    # ios_config:
+        # lines: ip ssh authentication-retries 3
+    # ignore_errors: yes
 
-  - name: SCP server
-    ios_config:
-        lines: ip scp server enable
-    ignore_errors: yes
+  # - name: SCP server
+    # ios_config:
+        # lines: ip scp server enable
+    # ignore_errors: yes
 
 ##### VTY LINES #####
 
-  # - name: VTY lines
-    # ios_config:
-        # lines:
-      #   - exec-timeout 10 0
-      #   - logging synchronous
-    # parents: 
-      # - line vty 0 4
-      # - line vty 5 15
-      
+  - name: VTY timeout
+    ios_config:
+        lines: exec-timeout 10 0
+    parents: 
+      - line vty 0 4
+      - line vty 5 15
+    ignore_errors: yes     
+
+  - name: VTY logging
+    ios_config:
+        lines: logging synchronous
+    parents: 
+      - line vty 0 4
+      - line vty 5 15
+    ignore_errors: yes
+
+##### SAVE CONFIG #####
+
+  - name: save config
+    ios_config:
+      save_when: always
+   
