@@ -89,55 +89,93 @@
       
 ##### SYSTEM TIME #####
 
-  - name: UTC timezone
-    ios_config: 
-        lines: clock timezone utc 0 0 
-    ignore_errors: yes
+  # - name: UTC timezone
+    # ios_config: 
+        # lines: clock timezone utc 0 0 
+    # ignore_errors: yes
 
-  - name: update-calendar
-    ios_config:
-      lines: ntp update-calendar
-    ignore_errors: yes
-
-  - name: ntp server 1
-    ios_config:
-      lines: ntp server 10.224.1.16 prefer
-    ignore_errors: yes
-
-  - name: ntp server 2
-    ios_config:
-      lines: ntp server 10.224.1.17
-    ignore_errors: yes
-
-  - name: ntp server 3
-    ios_config:
-      lines: ntp server 10.224.225.5
-    ignore_errors: yes
-
-  - name: ntp server 4
-    ios_config:
-      lines: ntp server 10.224.225.6
-    ignore_errors: yes
-
-  - name: daylight savings
-    ios_config:
-      lines: no clock summer-time
-    ignore_errors: yes
-
-     
-  # - name: Configure IP settings
+  # - name: update-calendar
     # ios_config:
-        # lines:
-      #   - ip subnet-zero
-      #   - no ip source-route
-      #   - no ip gratuitous-arps
-      #   - no ip directed-broadcast
-      #   - no ip domain-lookup
-      #   - no ip bootp server
-      #   - ip tcp synwait-time 10
-      #   - ip tcp intercept connection-timeout 60
-      #   - ip tcp intercept watch-timeout 10
-      #   - ip ssh authentication-retries 2
+      # lines: ntp update-calendar
+    # ignore_errors: yes
+
+  # - name: ntp server 1
+    # ios_config:
+      # lines: ntp server 10.224.1.16 prefer
+    # ignore_errors: yes
+
+  # - name: ntp server 2
+    # ios_config:
+      # lines: ntp server 10.224.1.17
+    # ignore_errors: yes
+
+  # - name: ntp server 3
+    # ios_config:
+      # lines: ntp server 10.224.225.5
+    # ignore_errors: yes
+
+  # - name: ntp server 4
+    # ios_config:
+      # lines: ntp server 10.224.225.6
+    # ignore_errors: yes
+
+  # - name: daylight savings
+    # ios_config:
+      # lines: no clock summer-time
+    # ignore_errors: yes
+
+##### IP SETTINGS #####
+
+  - name: subnet zero
+    ios_config:
+        lines: ip subnet-zero
+    ignore_errors: yes      
+
+  - name: source-route
+    ios_config:
+      lines: no ip source-route
+    ignore_errors: yes
+
+  - name: gratuitous-arps
+    ios_config:
+      lines: no ip gratuitous-arps
+    ignore_errors: yes
+
+  - name: directed-broadcast
+    ios_config:
+      lines: no ip directed-broadcast
+    ignore_errors: yes
+
+  - name: domain-lookup
+    ios_config:
+      lines: no ip domain-lookup
+    ignore_errors: yes
+
+  - name: bootp
+    ios_config:
+      lines: no ip bootp server
+    ignore_errors: yes
+
+  - name: synwait-time
+    ios_config:
+      lines: ip tcp synwait-time 10
+    ignore_errors: yes
+
+  - name: tcp intercept connection
+    ios_config:
+      lines: ip tcp intercept connection-timeout 60
+    ignore_errors: yes
+
+  - name: tcp intercept watch
+    ios_config:
+      lines: ip tcp intercept watch-timeout 10
+    ignore_errors: yes
+
+  - name: authentication-retries
+    ios_config:
+      lines: ip ssh authentication-retries 2
+    ignore_errors: yes
+
       
   # - name: SNMP
     # ios_config:
