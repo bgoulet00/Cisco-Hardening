@@ -5,7 +5,7 @@
     
   tasks:
   
-# SERVICES
+##### SERVICES #####
 
   # - name: password-encryption
     # ios_config:
@@ -46,7 +46,7 @@
       lines: no service pad
     ignore_errors: yes
     
-   - name: finger
+  - name: finger
     ios_config:
       lines: no service finger
     ignore_errors: yes
@@ -81,7 +81,7 @@
       lines: no ip http server
     ignore_errors: yes
 
-   - name: https
+  - name: https
     ios_config:
       lines: no ip http secure-server
     ignore_errors: yes
