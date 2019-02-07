@@ -1,0 +1,20 @@
+---
+- name: SNMP configuration
+  hosts: all
+  connection: local
+
+
+  tasks:
+  
+  - name: SNMP group
+    ios_config:
+      lines: snmp-server group monitor v3 auth access abcdef
+      
+  - name: SNMP user
+    ios_config:
+      lines: snmp-server user servicenow monitor v3 auth md5 abcd1234 priv aes 128 abcdefgh
+
+  - name: save config
+    ios_config:
+      save_when: always
+   
