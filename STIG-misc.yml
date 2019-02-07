@@ -40,6 +40,7 @@
   - name: network boot
     ios_config:
       lines: no boot network
+    ignore_errors: yes
         
   - name: pad
     ios_config:
