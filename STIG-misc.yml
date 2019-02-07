@@ -34,7 +34,7 @@
     ios_config:
         lines:
         - clock timezone utc 0 0
-        # - ntp update-calendar
+        - ntp update-calendar
         # - ntp server 10.224.1.16 prefer
         # - ntp server 10.224.1.17
         # - ntp server 10.224.225.5
